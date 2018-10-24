@@ -1,0 +1,19 @@
+let led = 0
+let index = 0
+forever(function () {
+    for (let index = 0; index <= 29; index++) {
+        strip.setAll(0x000000)
+        strip.setPixelColor(index, 0x00ff00)
+        pause(__internal.__timePicker(10))
+    }
+    for (let index = 29; index >= 0; index--) {
+        strip.setAll(0x000000)
+        strip.setPixelColor(index, 0x00ff00)
+        pause(__internal.__timePicker(10))
+    }
+})
+index = 0
+let strip: light.NeoPixelStrip = null
+led = 0
+strip = light.createStrip(pins.A1, 30)
+strip.setAll(0x000000)
